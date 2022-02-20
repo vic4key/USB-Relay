@@ -71,5 +71,8 @@
     <Image Include="res\USB-Relay.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\log-small.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

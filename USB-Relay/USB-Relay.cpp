@@ -16,12 +16,15 @@ USB_RELAY_API char __url__[]      = "https://github.com/vic4key/USB-Relay.git";
 
 USB_RELAY_API void VExt_Load()
 {
-  OutputDebugStringA("USB_Relay_Load(...)");
+  bool succeed = RelayManager::instance().initialize();
+  VExt::API::log(vu::format_A("Initialize USB Relay %s", succeed ? "succeed" : "failed"));
 }
 
 USB_RELAY_API void VExt_Unload()
 {
   OutputDebugStringA("USB_Relay_Unload(...)");
+  bool succeed = RelayManager::instance().destroy();
+  VExt::API::log(vu::format_A("Uninitialize USB Relay %s", succeed ? "succeed" : "failed"));
 }
 
 VExt_Expose_Object(Window)
