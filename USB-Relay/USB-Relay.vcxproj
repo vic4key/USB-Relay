@@ -78,23 +78,23 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(VExt)Demo\Bins\Extensions\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>VExt_Test_DLL_$(PlatformArchitecture)$(_DSuffix)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformArchitecture)$(_DSuffix)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(VExt)Demo\Bins\Extensions\</OutDir>
-    <TargetName>VExt_Test_DLL_$(PlatformArchitecture)$(_DSuffix)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformArchitecture)$(_DSuffix)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(VExt)Demo\Bins\Extensions\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
-    <TargetName>VExt_Test_DLL_$(PlatformArchitecture)$(_DSuffix)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformArchitecture)$(_DSuffix)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(VExt)Demo\Bins\Extensions\</OutDir>
-    <TargetName>VExt_Test_DLL_$(PlatformArchitecture)$(_DSuffix)</TargetName>
+    <TargetName>$(ProjectName)_$(PlatformArchitecture)$(_DSuffix)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
