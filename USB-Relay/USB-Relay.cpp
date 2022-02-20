@@ -22,7 +22,6 @@ USB_RELAY_API void VExt_Load()
 
 USB_RELAY_API void VExt_Unload()
 {
-  OutputDebugStringA("USB_Relay_Unload(...)");
   bool succeed = RelayManager::instance().destroy();
   VExt::API::log(vu::format_A("Uninitialize USB Relay %s", succeed ? "succeed" : "failed"));
 }
@@ -31,8 +30,6 @@ VExt_Expose_Object(Window)
 
 void Window::on_display_ui()
 {
-  OutputDebugStringA("USB_Relay_on_display_ui(...)");
-
   USBRelayDlg dlg;
   dlg.DoModal();
 }
