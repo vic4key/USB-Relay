@@ -8,3 +8,15 @@
 #else
 #define USB_RELAY_API __declspec(dllimport)
 #endif
+
+#include <VExt>
+
+class Window : public VExt::UI::Window
+{
+public:
+  virtual void on_display_ui();
+  virtual void on_settings();
+  virtual std::string on_menu_define();
+  virtual std::pair<bool, bool> on_menu_update(UINT idx, LPARAM lp);
+  virtual void on_menu_execute(UINT idx, LPARAM lp);
+};
