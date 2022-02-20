@@ -1,11 +1,12 @@
 // USB-Relay.cpp : Defines the initialization routines for the DLL.
 //
 
-// #include "pch.h"
-// #include "framework.h"
+#include "pch.h"
+#include "framework.h"
 
 #include <Vu>
 #include "USB-Relay.h"
+#include "USBRelayDlg.h"
 
 USB_RELAY_API char __name__[]     = "USB Relay";
 USB_RELAY_API char __author__[]   = "Vic P.";
@@ -28,6 +29,9 @@ VExt_Expose_Object(Window)
 void Window::on_display_ui()
 {
   OutputDebugStringA("USB_Relay_on_display_ui(...)");
+
+  USBRelayDlg dlg;
+  dlg.DoModal();
 }
 
 void Window::on_settings()
