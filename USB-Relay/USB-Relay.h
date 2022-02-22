@@ -11,6 +11,10 @@
 
 #include <VExt>
 
+/**
+ * VExt::Window
+ */
+
 class Window : public VExt::UI::Window
 {
 public:
@@ -20,3 +24,9 @@ public:
   virtual std::pair<bool, bool> on_menu_update(UINT idx, LPARAM lp);
   virtual void on_menu_execute(UINT idx, LPARAM lp);
 };
+
+/**
+ * Others
+ */
+
+ULONG CALLBACK fnNotifyCallbackRoutine(PVOID Context, ULONG Type, PVOID Setting);

@@ -6,40 +6,6 @@
 #include "USBRelayDlg.h"
 #include "RelayManager.h"
 
-#include <windows.h>
-#include <powrprof.h>
-
-ULONG CALLBACK fnNotifyCallbackRoutine(PVOID Context, ULONG Type, PVOID Setting)
-{
-  switch (Type)
-  {
-  // case PBT_APMRESUMEAUTOMATIC:
-  // {
-  //   vu::msg_debug_A("Operation resuming automatically after event.");
-  // }
-  // break;
-
-  case PBT_APMRESUMESUSPEND:
-  {
-    vu::msg_debug_A("Operation resuming after suspension.");
-    RelayManager::instance().set_state(0, state_t::on);
-  }
-  break;
-
-  case PBT_APMSUSPEND:
-  {
-    vu::msg_debug_A("System is suspending operation.");
-    RelayManager::instance().set_state(0, state_t::off);
-  }
-  break;
-
-  default:
-    break;
-  }
-
-  return 0;
-}
-
 // USBRelayDlg dialog
 
 USBRelayDlg::USBRelayDlg(CWnd* pParent) : CDialogEx(USBRelayDlg::IDD, pParent)
@@ -142,10 +108,6 @@ void USBRelayDlg::OnCbnSelchange_Devices()
 
 void USBRelayDlg::Initialize()
 {
-  DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS dnsp = { 0 };
-  dnsp.Callback = fnNotifyCallbackRoutine;
-  RegisterSuspendResumeNotification(&dnsp, DEVICE_NOTIFY_CALLBACK);
-
   m_States.SetExtendedStyle(m_States.GetExtendedStyle() | LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
 
   auto ptr_header = m_States.GetHeaderCtrl();
