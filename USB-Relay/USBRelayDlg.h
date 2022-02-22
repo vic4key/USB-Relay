@@ -18,6 +18,7 @@ public:
 protected:
   virtual BOOL OnInitDialog();
   virtual void DoDataExchange(CDataExchange* pDX);
+  virtual BOOL PreTranslateMessage(MSG* pMsg);
 
 protected:
   afx_msg void OnPaint();

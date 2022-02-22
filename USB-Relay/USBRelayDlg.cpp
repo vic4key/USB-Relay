@@ -20,6 +20,16 @@ void USBRelayDlg::DoDataExchange(CDataExchange* pDX)
   DDX_Control(pDX, IDC_STATES, m_States);
 }
 
+BOOL USBRelayDlg::PreTranslateMessage(MSG* pMsg)
+{
+  if (pMsg->message == WM_KEYDOWN && (pMsg->wParam == VK_ESCAPE || pMsg->wParam == VK_RETURN))
+  {
+    return TRUE;
+  }
+
+  return __super::PreTranslateMessage(pMsg);
+}
+
 BEGIN_MESSAGE_MAP(USBRelayDlg, CDialogEx)
   ON_WM_PAINT()
   ON_WM_QUERYDRAGICON()
