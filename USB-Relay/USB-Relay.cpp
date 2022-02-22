@@ -65,7 +65,7 @@ std::string Window::on_menu_define()
 {
   std::string menus = R"([
   {
-    "caption": "Hello World",
+    "caption": "Display UI",
     "index": 1,
     "children": []
   },
@@ -87,11 +87,13 @@ void Window::on_menu_execute(UINT idx, LPARAM lp)
 {
   if (idx == 1)
   {
-    VExt::API::msg_box("I am written in C++", "Hello World");
+    USBRelayDlg dlg;
+    dlg.DoModal();
   }
   else if (idx == 2)
   {
-    VExt::API::msg_box(__name__);
+    auto s = vu::format_A("%s %s © %s\n\nWritten in C++ on %s", __name__, __version__, __author__, __DATE__);
+    VExt::API::msg_box(s);
   }
 }
 
