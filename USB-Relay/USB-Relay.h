@@ -14,8 +14,8 @@
 class Window : public VExt::UI::Window
 {
 public:
-  virtual void on_display_ui();
-  virtual void on_settings();
+  virtual void on_display();
+  virtual void on_setting();
   virtual std::string on_menu_define();
   virtual std::pair<bool, bool> on_menu_update(UINT idx, LPARAM lp);
   virtual void on_menu_execute(UINT idx, LPARAM lp);

@@ -28,13 +28,13 @@ USB_RELAY_API void VExt_Unload()
 
 VExt_Expose_Object(Window)
 
-void Window::on_display_ui()
+void Window::on_display()
 {
   USBRelayDlg dlg;
   dlg.DoModal();
 }
 
-void Window::on_settings()
+void Window::on_setting()
 {
   OutputDebugStringA("USB_Relay_on_settings(...)");
 }
