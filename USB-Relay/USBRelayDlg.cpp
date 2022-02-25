@@ -110,6 +110,12 @@ void USBRelayDlg::OnBnClicked_Refresh()
 void USBRelayDlg::OnCbnSelchange_Devices()
 {
   auto idx = m_Devices.GetCurSel();
+  if (idx == -1)
+  {
+    AfxMessageBox(L"No device found", MB_OK | MB_ICONWARNING);
+    return;
+  }
+
   auto ptr = reinterpret_cast<usb_relay_device_info*>(m_Devices.GetItemDataPtr(idx));
   RelayManager::instance().select_device(ptr);
 
