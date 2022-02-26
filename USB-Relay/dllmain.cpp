@@ -21,6 +21,11 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
   {
     TRACE0("USB-Relay.DLL Initializing!\n");
 
+    if (AfxGetModuleState()->m_hCurrentInstanceHandle == nullptr)
+    {
+      AfxWinInit(hInstance, nullptr, GetCommandLine(), SW_NORMAL);
+    }
+
     if (!AfxInitExtensionModule(USBRelayDLL, hInstance)) // Extension DLL one-time initialization
     {
       return 0;
