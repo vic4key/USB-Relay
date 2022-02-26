@@ -58,7 +58,7 @@ void Window::on_display()
 
 void Window::on_setting()
 {
-  OutputDebugStringA("USB_Relay_on_setting(...)");
+  VExt::API::msg_box(__FUNCSIG__);
 }
 
 std::string Window::on_menu_define()
