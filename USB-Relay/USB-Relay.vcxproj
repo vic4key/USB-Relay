@@ -82,7 +82,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(VExt)Demo\Bins\Extensions\</OutDir>
+    <OutDir>C:\Users\Vic\source\repos\VAppExt\Bins\Extensions\</OutDir>
     <TargetName>$(ProjectName)_$(PlatformArchitecture)$(_DSuffix)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -93,7 +93,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(VExt)Demo\Bins\Extensions\</OutDir>
+    <OutDir>C:\Users\Vic\source\repos\VAppExt\Bins\Extensions\</OutDir>
     <TargetName>$(ProjectName)_$(PlatformArchitecture)$(_DSuffix)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -111,6 +111,7 @@
       <ModuleDefinitionFile>.\USB-Relay.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(ProjectDir)3rdparty\usb-relay-hid\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>usb_relay_device.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -137,6 +138,7 @@
       <ModuleDefinitionFile>.\USB-Relay.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(ProjectDir)3rdparty\usb-relay-hid\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>usb_relay_device.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -167,6 +169,7 @@
       <ModuleDefinitionFile>.\USB-Relay.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(ProjectDir)3rdparty\usb-relay-hid\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>usb_relay_device.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -197,6 +200,7 @@
       <ModuleDefinitionFile>.\USB-Relay.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(ProjectDir)3rdparty\usb-relay-hid\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>usb_relay_device.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
