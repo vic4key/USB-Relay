@@ -30,7 +30,8 @@ USB_RELAY_API void VExt_Load()
   g_hpn = RegisterSuspendResumeNotification(&dnsp, DEVICE_NOTIFY_CALLBACK);
 
   bool succeed = RelayManager::instance().initialize();
-  VExt::API::log(vu::format_A("Initialize USB Relay %s", succeed ? "succeed" : "failed"));
+  auto s = vu::format_A("Initialize USB Relay %s", succeed ? "succeed" : "failed");
+  VExt::API::log(s, succeed ? VExt::logging_level_t::info : VExt::logging_level_t::error);
 
   auto prefs = VExt::API::load_prefs(__name__);
   auto turn_on_on_load = VExt::json_get(prefs, "turn_on_on_load", true);
@@ -60,7 +61,8 @@ USB_RELAY_API void VExt_Unload()
   }
 
   bool succeed = RelayManager::instance().destroy();
-  VExt::API::log(vu::format_A("Uninitialize USB Relay %s", succeed ? "succeed" : "failed"));
+  auto s = vu::format_A("Uninitialize USB Relay %s", succeed ? "succeed" : "failed");
+  VExt::API::log(s, succeed ? VExt::logging_level_t::info : VExt::logging_level_t::error);
 }
 
 /**
