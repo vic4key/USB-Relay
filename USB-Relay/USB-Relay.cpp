@@ -33,16 +33,19 @@ USB_RELAY_API void VExt_Load()
   auto s = vu::format_A("Initialize USB Relay %s", succeed ? "succeed" : "failed");
   VExt::API::log(s, succeed ? VExt::logging_level_t::info : VExt::logging_level_t::error);
 
-  auto prefs = VExt::API::load_prefs(__name__);
-  auto turn_on_on_load = VExt::json_get(prefs, "turn_on_on_load", true);
-  if (turn_on_on_load)
+  auto& devices = RelayManager::instance().list_devices();
+  if (devices.empty())
   {
-    auto& devices = RelayManager::instance().list_devices();
-    if (!devices.empty())
-    {
-      RelayManager::instance().select_device(devices[0]);
-      RelayManager::instance().set_state(0, state_t::on);
-    }
+    return;
+  }
+
+  RelayManager::instance().select_device(devices[0]);
+
+  auto prefs = VExt::API::load_prefs(__name__);
+  auto channels_turn_on_on_load = VExt::json_get(prefs, "channels_turn_on_on_load", std::vector<int>());
+  for (int channel : channels_turn_on_on_load)
+  {
+    RelayManager::instance().set_state(channel, state_t::on);
   }
 }
 
@@ -54,10 +57,10 @@ USB_RELAY_API void VExt_Unload()
   }
 
   auto prefs = VExt::API::load_prefs(__name__);
-  auto turn_off_on_unload = VExt::json_get(prefs, "turn_off_on_unload", true);
-  if (turn_off_on_unload)
+  auto channels_turn_on_on_load = VExt::json_get(prefs, "channels_turn_off_on_unload", std::vector<int>());
+  for (int channel : channels_turn_on_on_load)
   {
-    RelayManager::instance().set_state(0, state_t::off);
+    RelayManager::instance().set_state(channel, state_t::off);
   }
 
   bool succeed = RelayManager::instance().destroy();
